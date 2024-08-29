@@ -27,7 +27,7 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('/assets/img1.jpeg');
+    background-image: url('https://s3-alpha-sig.figma.com/img/59bc/2e28/675c012bcd19ec0bce4da4f40538cddf?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hxtpEvHl7thJhagdjPZinoRFN8DeOk7bUzgsJEzAmdU9Ve~UzaCI7b7AMYADHax7YpwXsxhyJCe3sdsv69YhHxKCl1jQS9SeSQyXg7bx9UodRhUA3kr32D8pkm0rjw88HcwuLNoya1nxmnYS-iDbLFzUCThdrIP2THnoE5qmvn9MWtWbL9PnFc46rY6CJYSx2H-AINaVZJUgQLHbB~wlThPBkKX73oKEt4rTEr7M8KfiRKTqd4bSgtENjVoWrdQyCNvxuzHZkKtWXS5ReWZKexRT4PyrXNOZDir5rEHaYj5wlwoefny8Svp6P~8QXKkXINCFGkJzyqwFkkFZIRHTIw__');
     background-size: cover;
     background-position: center;
 }
@@ -247,6 +247,9 @@ a {
     align-items: center;
     font-weight: 600;
     text-transform: uppercase;
+}
+.headerone .container .hero .th .services a {
+    color: #005D79;
 }
 .headerone .container .hero .th .services:hover ,
 .headerone .container .hero .th .contact:hover {
@@ -1527,7 +1530,7 @@ a {
 }
 .contacts .container {
     position: relative;
-    background-image: url('/assets/history2.jpeg');
+    background-image: url('https://s3-alpha-sig.figma.com/img/b294/4649/c5523e7e26d80fba5ab92be913b96047?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YkyUbVYGwRwBEhhaEG~8EboGe2d-QiCP-P75UziUcPZ-IwMaFmTNzVC8wJUb60f1iLi1SzMHQMNEQWRu~JzTXFMFiQwYJ0MyKZcyMRJStgTxLahhRLiopdLLVDh0qpnAkdXSheaK-94kenslYPWh93bKXpynWvFH1wqUsRPVPVwVJ3EcalvNWRhrmHnHDU23RH0gs7dOBp5bz59aWhaNY-BVdGSis~vi8lbLGGGwFT9EcAFi-DRlOXyIapf6AbPOwpIkldZvfCu3CTmoydhjRWNoeQJKINhGgJ2pDsp6nQCFUGLFdFpGAPqc231SKkCb~xE13pG1Yg-vDbRBtvo9fw__');
     background-size: cover;
     background-position: center;
     border-radius: 30px;
