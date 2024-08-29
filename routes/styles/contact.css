@@ -27,7 +27,7 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('/assets/one.jpeg');
+    background-image: url('https://s3-alpha-sig.figma.com/img/196b/b590/6248dc0d6519125e9ba9fbb5ec590a1b?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RKdCX18S9NUmpVfyzKPLrFW8eLDLO07KCgU7jTzeZ448~lsmS2xQZN5IYlvdtmUyKfTJVubhFwBKXN4SvjsWPsInEFoKkPC4HkyDjJv4KXgJxnl6irnv7mchQBlB5zzQMsQWjalxAcdv2pqeracSv1dQfq6nQ7jFrCUU6Y2gY7kIHvPvnuHZ3fCJBM1nQvT52m5UdXeeQhk72B2xkeFrzv6q9ZCJAO~gQQuK2S4FJ5auCvyFmbtO1aA4RSyI4TPLby0vy7Ie55SAQ1jTA00JhKDre1Hy3nYDgTauwv-0P6lhwo0B5LPkhp4KQY8NfNyopbhcgJGIJ6O9qRKP7vDnhw__');
     background-size: cover;
     background-position: center;
 }
@@ -493,7 +493,7 @@ a {
 }
 .contacts .container {
     position: relative;
-    background-image: url('/assets/map.png');
+    background-image: url('https://s3-alpha-sig.figma.com/img/b424/009c/95b2b4a27cc387f350c88d9fe00a33b2?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n9b7xv7qPAKAiAUP5nQ5cVUJNrE~PYLKk79BUvSk0ftttOPmEJsphnkhP07fPPj5A-oeKBXUJefPGumqtT9sb1lKoiJE1N0F0amZAveSLYGu3J0NFxOMFnfjzA2Osv2DRkfWs9iKFjpViR9l2hGSKTC01EBmMcIFO5OY~YXjLdMh~s6L8MAz9GHDnXo~WJg-HO4M~FFeRtgp7SIEctwkgQ76H-GgiB6Oak0terGTntZvKPwGVKUwlwfy3jiL1LC~qRicrYoo7wQcX7eUcJeAVS3In6-GvdaNYqtXfDKWsppITft8kJkC3FxG7h4XAe-QKych1C3E1~nqSxKG4M4A8Q__');
     background-size: cover;
     background-position: center;
     border-radius: 30px;
