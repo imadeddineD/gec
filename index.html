@@ -153,22 +153,64 @@
 
     <!-- THE NUMBERS SECTION -->
      <!-- START -->
-    <section class="numbers">
+     <section class="numbers">
         <div class="container">
             <div class="one">
-                <div class="up">15K</div>
-                <div class="down">Mètres carrés de complexe industriel</div>
+                <div class="up" data-target="15000">0</div>
+                <div class="down">M2 de complexe industriel</div>
             </div>
             <div class="two">
-                <div class="up">100</div>
+                <div class="up" data-target="100">0</div>
                 <div class="down">Engins Spécialisés</div>
             </div>
             <div class="three">
-                <div class="up">15Y</div>
+                <div class="up" data-target="15">0</div>
                 <div class="down">Années d&apos;expérience</div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".numbers .up");
+            const duration = 1000; // Duration in milliseconds for all counters to finish
+
+            const maxTarget = Math.max(...[...counters].map(counter => +counter.getAttribute('data-target')));
+
+            const animateCounters = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const increment = target / (duration / 16); // Adjust increment based on duration
+
+                            let count = 0;
+                            const updateCount = () => {
+                                count += increment;
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count);
+                                    requestAnimationFrame(updateCount);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            };
+                            updateCount();
+                        });
+
+                        observer.disconnect(); // Stop observing after animation starts
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(animateCounters, {
+                threshold: 0.5 // Adjust when animation starts
+            });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
     <!-- THE END -->
 
 
@@ -200,9 +242,9 @@
                     <div>Mr. Med Abach</div>
                 </div>
                 <div class="scroll">
-                    <div><img src="https://s3-alpha-sig.figma.com/img/971f/a399/c430471a152696fe12ed41a72e280002?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=c3y4YyJDb42GnmDzFhaJj29wUIBen~GFbQ50I1w7XMMA8ANTHAfTGzu7UrtW952t6HVepQj7i1mfxln~8R~LS~P7nX8lOjWclzHSQXf6ks7RFCH0S2XtcIqLiQzFvhCd0Qr7ylCz6Djr8mrL6DrcQPXmgMBZrBTiutfaUZlsnesivPf5yr-z8WCUbP1TeNio4L~hTHehTCs705-p~Thm0eYFEBOoGOKsKTS2ZwmF2oUomLjibz~v41nUXMseHlQfBois3yklVhiuJoHoxiLuMZe~kSaJMhUF92flX4sek~tuTMhnlCUvsPz2aVUnFxC-lu6oUTSsBeYB1CdwLdg0cQ__" alt="ABOUT1"></div>
-                    <div><img src="https://s3-alpha-sig.figma.com/img/2da8/c09b/fede9872257380a64eb6c05341ea1f10?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ONB81ArD~ODeiw~J10mhD9XA-tTS~1NDEAjT211uTgkM3rnWt-Za~AFl~z1wpdTm-7AjXVw-XnHhoqAgpb1fQ42fEDFaaThXvxkPoyQ3yc45f~vTRuXfR~H~kPPIL-O-tb1jQIOV97O~i7I8wPBQcdh1Nce3hkf4hPLDYwD5I9fZATfmirVUEe92TJWgZo8wJk3gVXG-c1wD~2aNTqIHQZSanBwPKj7iHjYe69x2jAbwRVtofSpRQIm32WNS3-AvjiY3IRKu1pLcLfumxNsiOGTy7k93SJkZGgloOkKjXMICF2EgtX31ujnw3QH~4M3vzhMMg0XlGNGPQrKWZFztZw__" alt="ABOUT2"></div>
-                    <div><img src="https://s3-alpha-sig.figma.com/img/c339/f9a6/89acac997bb21234eb53ff9850150dab?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=N5pAQd5AzghlThtGC1RHU17FxYsl6U7X6evim7ht6sP~uKWeA4cWpe-qUwQGKS490mkboLOdaFMJ9E03b~H9v01jR6TJP6o8hZQQC~2-3svJyPobOgxl3dyYMOUfSu9ezpUKDdvAWr89vXNo0xZGa48Uz7WWYiNb6c6VgkymCcOHuguj0qTUqZUJv3oP64qTCNYVxVYrFneY-zAjyHZezIV7jp9TeTco0xE~PMgmMu0YCzGMqSRWRCwvoK6A~UfLgsW8E5wi0qZ7zxEwtOB~ym6zd9sLonG6kbolbpYmts6sMFCfkDU2gTHMXsTte0yX~iMFFjGG1--69aYeXYSoxQ__" alt="ABOUT3"></div>
+                    <div><img src="./assets/about1.jpeg" alt="ABOUT1"></div>
+                    <div><img src="./assets/about2.jpeg" alt="ABOUT2"></div>
+                    <div><img src="./assets/about3.jpeg" alt="ABOUT3"></div>
                 </div>
             </div>
         </div>
@@ -211,55 +253,77 @@
 
     <!-- HISTORY SECTION -->
      <!-- THE START -->
-    <section class="history">
+     <section class="history">
         <div class="container">
             <div class="left">
-                <div class="one"><img src="https://s3-alpha-sig.figma.com/img/6fa0/0579/829eeaea24a7b17075289056cd688d6b?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Jw36AEIetyGSzspRv-3WGSCTphjjfbGVFdStEUz5cOkH1YJG2hUoJa-XymfayeroVYkHnrIJZ7DDHksSQXZrNZKE5xqGXw49osy5ZEukIvSPDfkOxk~gJ11SNcdc~sBiScKWNTGrMwNjuUnj~djPqH1sp86tvu74redtqCV2UBBTAZrBt3UMcu~Iwq5jr-2waAPBTBbOT~1ggYF-23VDO-YrXgQ62Hq4py-0CimHXk4gCV6HCq5Cwj4i6JyN2GwAI6VQ~SpsBRSA6kORd5~YnRunax1aysbJ~YDeomoMZ-RW7i3Rhxi3ptYR7o-R4dJfIDs1ADY6tFxEIJpDiJLiOQ__" alt="HISTORY1"></div>
-                <div class="two"><img src="https://s3-alpha-sig.figma.com/img/b294/4649/c5523e7e26d80fba5ab92be913b96047?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YkyUbVYGwRwBEhhaEG~8EboGe2d-QiCP-P75UziUcPZ-IwMaFmTNzVC8wJUb60f1iLi1SzMHQMNEQWRu~JzTXFMFiQwYJ0MyKZcyMRJStgTxLahhRLiopdLLVDh0qpnAkdXSheaK-94kenslYPWh93bKXpynWvFH1wqUsRPVPVwVJ3EcalvNWRhrmHnHDU23RH0gs7dOBp5bz59aWhaNY-BVdGSis~vi8lbLGGGwFT9EcAFi-DRlOXyIapf6AbPOwpIkldZvfCu3CTmoydhjRWNoeQJKINhGgJ2pDsp6nQCFUGLFdFpGAPqc231SKkCb~xE13pG1Yg-vDbRBtvo9fw__" alt="HISTORY2"></div>
+                <div class="one"><img src="./assets/history1.jpeg" alt="HISTORY1"></div>
+                <div class="two"><img src="./assets/history2.jpeg" alt="HISTORY2"></div>
                 <div class="three">
-                    <p>99%</p>
+                    <p><span data-target="99">0</span><span>%</span></p>
                     <p>Clients Satisfaits</p>
                 </div>
             </div>
             <div class="right">
                 <p class="one">HISTOIRE</p>
-                <p class="two">UNE ÉQUIPE DE PROFESSIONNELS </p>
+                <p class="two">UNE ÉQUIPE DE PROFESSIONNELS</p>
                 <p class="three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div class="four">
                     <div class="lft">
-                        <svg width="27" height="36" viewBox="0 0 27 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.6875 24.916C18.7305 25.4629 17.2949 24.916 16.2012 25.1895C15.1758 25.4629 14.2188 26.625 13.125 26.625C11.9629 26.625 11.0059 25.4629 9.98047 25.1895C8.88672 24.916 7.45117 25.4629 6.49414 24.916C5.53711 24.3691 5.33203 22.8652 4.58008 22.0449C3.75977 21.293 2.25586 21.0195 1.70898 20.1309C1.16211 19.1738 1.70898 17.7383 1.43555 16.6445C1.16211 15.6191 0 14.6621 0 13.5C0 12.4062 1.16211 11.4492 1.43555 10.4238C1.70898 9.33008 1.16211 7.89453 1.70898 6.9375C2.25586 5.98047 3.75977 5.77539 4.58008 5.02344C5.33203 4.20312 5.60547 2.69922 6.49414 2.15234C7.45117 1.60547 8.88672 2.15234 9.98047 1.87891C11.0059 1.60547 11.9629 0.375 13.125 0.375C14.2188 0.375 15.1758 1.60547 16.1328 1.87891C17.2266 2.15234 18.6621 1.60547 19.6191 2.15234C20.5762 2.69922 20.7812 4.20312 21.6016 5.02344C22.3535 5.77539 23.8574 5.98047 24.4043 6.9375C24.9512 7.89453 24.4043 9.33008 24.6777 10.4238C24.9512 11.4492 26.1816 12.4062 26.1816 13.5C26.1816 14.6621 25.0195 15.6191 24.7461 16.6445C24.4727 17.7383 25.0195 19.1738 24.4727 20.1309C23.9258 21.0879 22.4219 21.293 21.6016 22.0449C20.8496 22.8652 20.5762 24.3691 19.6875 24.916ZM7.65625 13.5C7.65625 16.5762 10.0488 18.9688 13.125 18.9688C16.1328 18.9688 18.5938 16.5762 18.5938 13.5C18.5938 10.4922 16.1328 8.03125 13.125 8.03125C10.0488 8.03125 7.65625 10.4922 7.65625 13.5ZM0.0683594 30.043L2.32422 24.4375C4.78516 26.8301 8.06641 28.4707 11.7578 28.8125L9.43359 34.418C9.22852 34.9648 8.68164 35.375 7.99805 35.375C7.99805 35.375 7.99805 35.375 7.92969 35.375C7.31445 35.375 6.76758 35.0332 6.49414 34.4863L4.99023 31.6152L1.91406 32.2305C1.36719 32.3672 0.751953 32.1621 0.341797 31.6836C-0.0683594 31.2051 -0.136719 30.5898 0.0683594 30.043ZM23.8574 24.4375L26.1133 30.043C26.3184 30.5898 26.25 31.2051 25.8398 31.6836C25.4297 32.1621 24.8145 32.3672 24.2676 32.2305L21.1914 31.6152L19.6875 34.4863C19.4141 35.1016 18.8672 35.375 18.252 35.375C18.1836 35.375 18.1836 35.375 18.1836 35.4434C17.5 35.375 16.9531 34.9648 16.6797 34.418L14.4238 28.8125C18.1152 28.4707 21.3965 26.8301 23.8574 24.4375Z" fill="white"/>
-                        </svg>
+                        <!-- SVG icon here -->
                     </div>
                     <div class="rght">
                         <p>20 + Winning Awards</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                     </div>
                 </div>
-                <div class="five">
-                    <div class="lft">
-                        <svg width="31" height="36" viewBox="0 0 31 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.9375 2.5625V4.75H19.6875V2.5625C19.6875 1.40039 20.6445 0.375 21.875 0.375C23.0371 0.375 24.0625 1.40039 24.0625 2.5625V4.75H27.3438C29.1211 4.75 30.625 6.25391 30.625 8.03125V11.3125H0V8.03125C0 6.25391 1.43555 4.75 3.28125 4.75H6.5625V2.5625C6.5625 1.40039 7.51953 0.375 8.75 0.375C9.91211 0.375 10.9375 1.40039 10.9375 2.5625ZM0 13.5H30.625V32.0938C30.625 33.9395 29.1211 35.375 27.3438 35.375H3.28125C1.43555 35.375 0 33.9395 0 32.0938V13.5ZM4.375 21.1562C4.375 21.7715 4.85352 22.25 5.46875 22.25H7.65625C8.20312 22.25 8.75 21.7715 8.75 21.1562V18.9688C8.75 18.4219 8.20312 17.875 7.65625 17.875H5.46875C4.85352 17.875 4.375 18.4219 4.375 18.9688V21.1562ZM13.125 21.1562C13.125 21.7715 13.6035 22.25 14.2188 22.25H16.4062C16.9531 22.25 17.5 21.7715 17.5 21.1562V18.9688C17.5 18.4219 16.9531 17.875 16.4062 17.875H14.2188C13.6035 17.875 13.125 18.4219 13.125 18.9688V21.1562ZM22.9688 17.875C22.3535 17.875 21.875 18.4219 21.875 18.9688V21.1562C21.875 21.7715 22.3535 22.25 22.9688 22.25H25.1562C25.7031 22.25 26.25 21.7715 26.25 21.1562V18.9688C26.25 18.4219 25.7031 17.875 25.1562 17.875H22.9688ZM4.375 29.9062C4.375 30.5215 4.85352 31 5.46875 31H7.65625C8.20312 31 8.75 30.5215 8.75 29.9062V27.7188C8.75 27.1719 8.20312 26.625 7.65625 26.625H5.46875C4.85352 26.625 4.375 27.1719 4.375 27.7188V29.9062ZM14.2188 26.625C13.6035 26.625 13.125 27.1719 13.125 27.7188V29.9062C13.125 30.5215 13.6035 31 14.2188 31H16.4062C16.9531 31 17.5 30.5215 17.5 29.9062V27.7188C17.5 27.1719 16.9531 26.625 16.4062 26.625H14.2188ZM21.875 29.9062C21.875 30.5215 22.3535 31 22.9688 31H25.1562C25.7031 31 26.25 30.5215 26.25 29.9062V27.7188C26.25 27.1719 25.7031 26.625 25.1562 26.625H22.9688C22.3535 26.625 21.875 27.1719 21.875 27.7188V29.9062Z" fill="white"/>
-                        </svg>                            
-                    </div>
-                    <div class="rght">
-                        <p>15 Years Of Experience</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                </div>
-                <div class="six">
-                    EN SAVOIR PLUS
-                </div>
             </div>
         </div>
     </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".three p span:first-child");
+            const duration = 1500; // Total animation duration in milliseconds
+    
+            const animateCounters = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        const stepTime = Math.abs(Math.floor(duration / target)); // Calculate time per step
+    
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            if (count < target) {
+                                counter.innerText = count + 1;
+                                setTimeout(updateCount, stepTime); // Update every 'stepTime' ms
+                            } else {
+                                counter.innerText = target; // Ensure exact final value
+                            }
+                        };
+    
+                        updateCount();
+                        observer.unobserve(counter); // Stop observing after animation
+                    }
+                });
+            };
+    
+            const observer = new IntersectionObserver(animateCounters, {
+                threshold: 0.5 // Trigger animation when 50% of the element is in view
+            });
+    
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
     <!-- THE END -->
 
     <!-- THE SERVICES -->
      <!-- THE START -->
     <section class="service">
         <div class="container">
-            <div class="up">
+            <div class="up"> 
                 <p class="desc">QUE FAISONS NOUS ?</p>
                 <p class="title">NOS SERVICES</p>
             </div>
@@ -272,32 +336,32 @@
                     </div>
                     <div class="title">Inspection Du Réseau</div>
                     <div class="desc">Lorem ipsum dolor sit amet consectetur adipiscing elit.</div>
-                    <div class="button">EN SAVOIR PLUS</div>
+                    <div class="button"><a href="./routes/singleService.html">EN SAVOIR PLUS</a></div>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <svg width="52" height="46" viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M51.2246 23.125C51.2246 24.707 49.9063 25.9375 48.4121 25.9375H45.5996L45.6875 40C45.6875 40.2637 45.6875 40.5273 45.6875 40.7031V42.1094C45.6875 44.1309 44.1055 45.625 42.1719 45.625H40.7656C40.5899 45.625 40.502 45.625 40.4141 45.625C40.3262 45.625 40.1504 45.625 40.0625 45.625H35.1406C33.1192 45.625 31.625 44.1309 31.625 42.1094V34.375C31.625 32.8809 30.3067 31.5625 28.8125 31.5625H23.1875C21.6055 31.5625 20.375 32.8809 20.375 34.375V42.1094C20.375 44.1309 18.793 45.625 16.8594 45.625H11.9375C11.7617 45.625 11.6738 45.625 11.4981 45.625C11.4102 45.625 11.3223 45.625 11.2344 45.625H9.82814C7.80666 45.625 6.31252 44.1309 6.31252 42.1094V32.2656C6.31252 32.2656 6.31252 32.1777 6.31252 32.0898V25.9375H3.50002C1.91798 25.9375 0.687515 24.707 0.687515 23.125C0.687515 22.334 0.951187 21.6309 1.56642 21.0156L24.0664 1.41602C24.6817 0.800781 25.3848 0.625 26 0.625C26.6152 0.625 27.3184 0.888672 27.8457 1.32812L50.2578 21.0156C50.961 21.6309 51.3125 22.334 51.2246 23.125Z" fill="#005D79"/>
+                            <path d="M51.2246 23.125C51.2246 24.707 49.9063 25.9375 48.4121 25.9375H45.5996L45.6875 40C45.6875 40.2637 45.6875 40.5273 45.6875 40.7031V42.1094C45.6875 44.1309 44.1055 45.625 42.1719 45.625H40.7656C40.5899 45.625 40.502 45.625 40.4141 45.625C40.3262 45.625 40.1504 45.625 40.0625 45.625H35.1406C33.1192 45.625 31.625 44.1309 31.625 42.1094V34.375C31.625 32.8809 30.3067 31.5625 28.8125 31.5625H23.1875C21.6055 31.5625 20.375 32.8809 20.375 34.375V42.1094C20.375 44.1309 18.793 45.625 16.8594 45.625H11.9375C11.7617 45.625 11.6738 45.625 11.4981 45.625C11.4102 45.625 11.3223 45.625 11.2344 45.625H9.82814C7.80666 45.625 6.31252 44.1309 6.31252 42.1094V32.2656C6.31252 32.2656 6.31252 32.1777 6.31252 32.0898V25.9375H3.50002C1.91798 25.9375 0.687515 24.707 0.687515 23.125C0.687515 22.334 0.951187 21.6309 1.56642 21.0156L24.0664 1.41602C24.6817 0.800781 25.3848 0.625 26 0.625C26.6152 0.625 27.3184 0.888672 27.8457 1.32812L50.2578 21.0156C50.961 21.6309 51.3125 22.334 51.2246 23.125Z" fill="#C5C5C5"/>
                         </svg>                            
                     </div>
                     <div class="title">Nettoyage Des Canalisations</div>
                     <div class="desc">Lorem ipsum dolor sit amet consectetur adipiscing elit.</div>
-                    <div class="button">EN SAVOIR PLUS</div>
+                    <div class="button"><a href="./routes/singleService.html">EN SAVOIR PLUS</a></div>
                 </div>
                 <div class="card">
                     <div class="icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.833313 6.25C0.833313 3.17383 3.29425 0.625 6.45831 0.625H31.7708C34.847 0.625 37.3958 3.17383 37.3958 6.25V11.875C37.3958 15.0391 34.847 17.5 31.7708 17.5H6.45831C3.29425 17.5 0.833313 15.0391 0.833313 11.875V6.25ZM14.8958 31.5625C14.8958 30.0684 16.1263 28.75 17.7083 28.75V27.3438C17.7083 23.4766 20.7845 20.3125 24.7396 20.3125H37.3958C38.89 20.3125 40.2083 19.082 40.2083 17.5V6.77734C43.4603 7.91992 45.8333 11.084 45.8333 14.6875V17.5C45.8333 22.1582 42.054 25.9375 37.3958 25.9375H24.7396C23.9485 25.9375 23.3333 26.6406 23.3333 27.3438V28.75C24.8275 28.75 26.1458 30.0684 26.1458 31.5625V42.8125C26.1458 44.3945 24.8275 45.625 23.3333 45.625H17.7083C16.1263 45.625 14.8958 44.3945 14.8958 42.8125V31.5625Z" fill="#005D79"/>
+                            <path d="M0.833313 6.25C0.833313 3.17383 3.29425 0.625 6.45831 0.625H31.7708C34.847 0.625 37.3958 3.17383 37.3958 6.25V11.875C37.3958 15.0391 34.847 17.5 31.7708 17.5H6.45831C3.29425 17.5 0.833313 15.0391 0.833313 11.875V6.25ZM14.8958 31.5625C14.8958 30.0684 16.1263 28.75 17.7083 28.75V27.3438C17.7083 23.4766 20.7845 20.3125 24.7396 20.3125H37.3958C38.89 20.3125 40.2083 19.082 40.2083 17.5V6.77734C43.4603 7.91992 45.8333 11.084 45.8333 14.6875V17.5C45.8333 22.1582 42.054 25.9375 37.3958 25.9375H24.7396C23.9485 25.9375 23.3333 26.6406 23.3333 27.3438V28.75C24.8275 28.75 26.1458 30.0684 26.1458 31.5625V42.8125C26.1458 44.3945 24.8275 45.625 23.3333 45.625H17.7083C16.1263 45.625 14.8958 44.3945 14.8958 42.8125V31.5625Z" fill="#C5C5C5"/>
                         </svg>                                                      
                     </div>
                     <div class="title">Inspection Du Réseau</div>
                     <div class="desc">Lorem ipsum dolor sit amet consectetur adipiscing elit.</div>
-                    <div class="button">EN SAVOIR PLUS</div>
+                    <div class="button"><a href="./routes/singleService.html">EN SAVOIR PLUS</a></div>
                 </div>
             </div>
             <div class="down">
                 <span>
-                    <span>DÉCOUVREZ</span><span>NOS SERVICES</span>
+                    <span>DÉCOUVREZ</span><span><a href="./routes/sevices.html">NOS SERVICES</a></span>
                 </span>
             </div>
         </div>
@@ -316,7 +380,7 @@
                 </div>
                 <div class="down">
                     <div class="downlft">
-                        <img src="https://s3-alpha-sig.figma.com/img/196b/b590/6248dc0d6519125e9ba9fbb5ec590a1b?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RKdCX18S9NUmpVfyzKPLrFW8eLDLO07KCgU7jTzeZ448~lsmS2xQZN5IYlvdtmUyKfTJVubhFwBKXN4SvjsWPsInEFoKkPC4HkyDjJv4KXgJxnl6irnv7mchQBlB5zzQMsQWjalxAcdv2pqeracSv1dQfq6nQ7jFrCUU6Y2gY7kIHvPvnuHZ3fCJBM1nQvT52m5UdXeeQhk72B2xkeFrzv6q9ZCJAO~gQQuK2S4FJ5auCvyFmbtO1aA4RSyI4TPLby0vy7Ie55SAQ1jTA00JhKDre1Hy3nYDgTauwv-0P6lhwo0B5LPkhp4KQY8NfNyopbhcgJGIJ6O9qRKP7vDnhw__" alt="whyus">
+                        <img src="./assets//whyus.jpeg" alt="whyus">
                         <div>
                             <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="90" height="90" rx="45" fill="#C5C5C5"/>
@@ -418,42 +482,42 @@
             </div>
             <div class="down">
                 <div class="one">
-                    <img src="https://s3-alpha-sig.figma.com/img/196b/b590/6248dc0d6519125e9ba9fbb5ec590a1b?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RKdCX18S9NUmpVfyzKPLrFW8eLDLO07KCgU7jTzeZ448~lsmS2xQZN5IYlvdtmUyKfTJVubhFwBKXN4SvjsWPsInEFoKkPC4HkyDjJv4KXgJxnl6irnv7mchQBlB5zzQMsQWjalxAcdv2pqeracSv1dQfq6nQ7jFrCUU6Y2gY7kIHvPvnuHZ3fCJBM1nQvT52m5UdXeeQhk72B2xkeFrzv6q9ZCJAO~gQQuK2S4FJ5auCvyFmbtO1aA4RSyI4TPLby0vy7Ie55SAQ1jTA00JhKDre1Hy3nYDgTauwv-0P6lhwo0B5LPkhp4KQY8NfNyopbhcgJGIJ6O9qRKP7vDnhw__" alt="ONE">
+                    <img src="./assets/one.jpeg" alt="ONE">
                     <div>
                         <div class="tit">Réhabilitations de canalisations</div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur adipsing elit.</div>
                     </div>
                 </div>
                 <div class="two">
-                    <img src="https://s3-alpha-sig.figma.com/img/5de1/910c/281ea2f6d55da48f9b0d9534701aeead?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QBsFpZw2neD-VDmHMaNsyoNRTGqvXiCA~bby1HjyONkLxCrv6RqkzYBbi0k4kzQ13yF9C2gzoKW93QXG0Ijb8lot8Zw76urcvCbO~zWYwzHSzo4qYW831KqXcN6TBWpT-V21ECGt5uZKtDahc-uVJl2jbS8MX0XYVpHs7eiLSMGH~sX8IGc1BKK57taZPpcROBS6yyPjtELz2Rzo3ZpG7nyMU2pohENL1Em0rwMGKY8xXpJm~f4UIO0LKgtKEH~7IhfHHYY-NsFRqj~qFETp7g5AINSB5W510rvflaKC7czmt8s98uZf9n4ca2P7VpGHNmTc2xePySjStOL4UhK7Uw__" alt="TWO">
+                    <img src="./assets/two.jpeg" alt="TWO">
                     <div>
                         <div class="tit">Réhabilitations </div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur .</div>
                     </div>
                 </div>
                 <div class="three">
-                    <img src="https://s3-alpha-sig.figma.com/img/9a1b/4340/6241fa41cb2752dbbfe287813e53c351?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cpEJADFOkiKffk9mty9A1p-BLgNE~wpMIJpFtKRqLM2xxvyjkcEJmN~JbHp5S-GYD-BYPLZhBoO6RakjqxjelHCHNGOClbcmK-Lw3DtbLCC-A0h9rhe2tbcoXBUtnZvjGOHwt4XX0ZQGM2JW1vuMtb97f~naIAnFE4MpsVljfYWfS9PITaaQr91Z5QrVhuqjWhFt1f1Qfh6Pjuj7F2UIGRCHvuzAdgpj03hkCVHYvwnK4kIIAzgsrV1TPDhO2z~FAoXQj0xgwbc~bb8fh8bA8MeqjEN2XqPjhXkn1Exy4TrnxqN034~w0m3ceNKrowfhr7TbYkva~A1CEWEVgGspig__" alt="THREE">
+                    <img src="./assets/three.jpeg" alt="THREE">
                     <div>
                         <div class="tit">Réhabilitations </div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur .</div>
                     </div>
                 </div>
                 <div class="four">
-                    <img src="https://s3-alpha-sig.figma.com/img/2aef/7389/d39e0705caf1d9fb96857d3376bc116c?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OBI4RH9XZTbw~xCb0griV-qEZxSMLWj1EGHVEjH2ya--FQ4ut1XRCZCimwzXUrobVe7BRjkbaUkkTXD1xdWgqceglZ2tz9pmlksFxAQKQjbXlHuassUNwy0DH~sx3wq8w5E6O9U~OUJ2avMpFQRub03W7pH0jlOq0Df2XkV9vB6f3wTU2BQ-X3ZbzgkSJYterP8GhlEQH5UjHRN9ft6FKGkjtCtzrYFN3~uJGX0FcKOOfAXrruFv2PkW9pzu5Bd0t1LJGqSYeMpB3gF66eV2vNlEl3EQtrq51nDc65BPSknXMTWv3TsjMDLZzkfR2qC3HpWDGjnxtJRW~f58rrqFrg__" alt="FOUR">
+                    <img src="./assets/fout.jpeg" alt="FOUR">
                     <div>
                         <div class="tit">Réhabilitations </div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur .</div>
                     </div>
                 </div>
                 <div class="five">
-                    <img src="https://s3-alpha-sig.figma.com/img/2271/ae75/6537f8e81f852c7ec550752905985f6c?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TWuFTt9dpRl7QQ00hII5919CZxVOgKXE08LhmJiFZNG9LAXP9wwfdUd0E1nc~-veSN58ysZkOqW1y8ye2qYcR0lCsmJWTyX27FDW7OiELpjs43jKa1r~bnbxZC7LgCHRMwHyydWziTsYIiHirf4DOL~qh1I9R6ox8pMZpuR9mwIlKrEkWjHQMrhXcsI1GFhSTAZ8DI3Yp9KIW-34xmXCMAuekodi29EHX8dD1mzQZr5rw-nfuSgsk6xv~qR3loGPR-kcwH-a4vNX0xwjtGmbTKdSGimkYOv9shTpWIbFVEP3epGZb6MVy9FJYzn7dQ-ZveTqMoUFTQ0atLD8VAEKSQ__" alt="FIVE">
+                    <img src="./assets/five.jpeg" alt="FIVE">
                     <div>
                         <div class="tit">Réhabilitations </div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur .</div>
                     </div>
                 </div>
                 <div class="six">
-                    <img src="https://s3-alpha-sig.figma.com/img/6081/dd90/e3decdc35999d443d2345806b7268048?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=o6DckoWAEzyZzzQRcJs5H~Ulu4vHZBZyyz2pWAPJ6~7h8DshgKGjpa02e7bJwhdzG~cl9olr6cuC-GT5quw0LkyR0hYhB4-5MxRkVTlZyhM73P6d5it7g8lccH2U7yuvFpoaW13ef~oiWtAZkt3Cr8Kuf1fmU1fW5nCdn-P5yhO69SM3h3ysNcdY9Fy7ReQ2WhwxYGeyb6vASfHe4Obsqxj6xQ5I8XcOfbfqPydedMaKuJ-1TodEDtDSwJiChZ5qKkUUuSJzdIcpo8oplXHynyEPu0lw9ICcgyD2OqFIzdblN6t~SC54Br86CRqMCckAXrXn7zQT-aJd409NtRTKEQ__" alt="SIX">
+                    <img src="./assets/six.jpeg" alt="SIX">
                     <div>
                         <div class="tit">Réhabilitations </div>
                         <div class="desc">Lorem ipsum dolor sit amet consectetur .</div>
@@ -489,7 +553,7 @@
             </div>
             <div class="lower">
                 <div class="left">
-                    <img src="https://s3-alpha-sig.figma.com/img/2da8/c09b/fede9872257380a64eb6c05341ea1f10?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ONB81ArD~ODeiw~J10mhD9XA-tTS~1NDEAjT211uTgkM3rnWt-Za~AFl~z1wpdTm-7AjXVw-XnHhoqAgpb1fQ42fEDFaaThXvxkPoyQ3yc45f~vTRuXfR~H~kPPIL-O-tb1jQIOV97O~i7I8wPBQcdh1Nce3hkf4hPLDYwD5I9fZATfmirVUEe92TJWgZo8wJk3gVXG-c1wD~2aNTqIHQZSanBwPKj7iHjYe69x2jAbwRVtofSpRQIm32WNS3-AvjiY3IRKu1pLcLfumxNsiOGTy7k93SJkZGgloOkKjXMICF2EgtX31ujnw3QH~4M3vzhMMg0XlGNGPQrKWZFztZw__" alt="lower">
+                    <img src="./assets/whyus.jpeg" alt="lower">
                     <div>
                         <svg width="80" height="80" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" width="90" height="90" rx="45" fill="#C5C5C5"/>
@@ -553,7 +617,7 @@
         <div class="container">
             <div class="title">COLLABOREZ AVEC DES EXPERTS DES CANALISATIONS</div>
             <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-            <div class="button">CONTACTEZ-NOUS</div>
+            <div class="button"><a href="./routes/contact.html">CONTACTEZ-NOUS</a></div>
         </div>
     </section>
     <!-- THE END -->

@@ -27,7 +27,7 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('https://s3-alpha-sig.figma.com/img/7e7a/6fe8/0bb62a99c3485392a72d007c38f292d8?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OQHf0EeeQoETELwyXu6lfpS9tQiN2Zu6j1wG-BzW3b4YVni-yJL-~R-x-HXQQ7gx~vbPwhLxKWYPSM2RCzuwfrZ1l9RRJfyrjC3n~dY~IpSBwrWd2J6BuInlVVQCKN8~fIr1Xpi3i~GSGgckMo31bcHVlhi6uptF-Nv2S9Z-FdVyij8AqONn8zRIbFYln2cvzItX--tU4zTD0kLeO4AXRP3Fl8WtJ3XLqtfahT6o07lDIrNDE3ynb8pzDZtTl4KN3MtLSu28YCZZesx7iXIx2cc19ZA7FYXF2dglKgy75Hn5VA7ufDscXSpes4iiZtl0jGFgRQuz32dWhsobInzH2A__');
+    background-image: url('../../assets/img1.jpeg');
     background-size: cover;
     background-position: center;
 }
@@ -406,12 +406,22 @@ a {
     justify-content: center;
     align-items: center;
 }
+.service .container .main .card .button a {
+    width : 250px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #005D79;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .service .container .main .card:hover {
     background-color: #005D79;
     transform: scaleY(0.95);
 }
-.service .container .main .card:hover .button {
+.service .container .main .card:hover .button a {
     background-color: white;
     color: #005D79;
     cursor: pointer;
@@ -804,7 +814,7 @@ a {
 }
 .contacts .container {
     position: relative;
-    background-image: url('https://s3-alpha-sig.figma.com/img/b294/4649/c5523e7e26d80fba5ab92be913b96047?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YkyUbVYGwRwBEhhaEG~8EboGe2d-QiCP-P75UziUcPZ-IwMaFmTNzVC8wJUb60f1iLi1SzMHQMNEQWRu~JzTXFMFiQwYJ0MyKZcyMRJStgTxLahhRLiopdLLVDh0qpnAkdXSheaK-94kenslYPWh93bKXpynWvFH1wqUsRPVPVwVJ3EcalvNWRhrmHnHDU23RH0gs7dOBp5bz59aWhaNY-BVdGSis~vi8lbLGGGwFT9EcAFi-DRlOXyIapf6AbPOwpIkldZvfCu3CTmoydhjRWNoeQJKINhGgJ2pDsp6nQCFUGLFdFpGAPqc231SKkCb~xE13pG1Yg-vDbRBtvo9fw__');
+    background-image: url('../../assets/three.jpeg');
     background-size: cover;
     background-position: center;
     border-radius: 30px;

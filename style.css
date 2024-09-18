@@ -27,7 +27,7 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url('https://s3-alpha-sig.figma.com/img/59bc/2e28/675c012bcd19ec0bce4da4f40538cddf?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hxtpEvHl7thJhagdjPZinoRFN8DeOk7bUzgsJEzAmdU9Ve~UzaCI7b7AMYADHax7YpwXsxhyJCe3sdsv69YhHxKCl1jQS9SeSQyXg7bx9UodRhUA3kr32D8pkm0rjw88HcwuLNoya1nxmnYS-iDbLFzUCThdrIP2THnoE5qmvn9MWtWbL9PnFc46rY6CJYSx2H-AINaVZJUgQLHbB~wlThPBkKX73oKEt4rTEr7M8KfiRKTqd4bSgtENjVoWrdQyCNvxuzHZkKtWXS5ReWZKexRT4PyrXNOZDir5rEHaYj5wlwoefny8Svp6P~8QXKkXINCFGkJzyqwFkkFZIRHTIw__');
+    background-image: url('./assets/img1.jpeg');
     background-size: cover;
     background-position: center;
 }
@@ -121,7 +121,16 @@ a {
     border-radius: 30px;
     background-color: #005D79;
 }
-.headerone .container .navbar .navtwo .contact .contactnous:hover {
+.headerone .container .navbar .navtwo .contact .contactnous > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 244px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #005D79;
+}
+.headerone .container .navbar .navtwo .contact .contactnous a:hover {
     cursor: pointer;
     background-color: #00BDFF;
     transition: all 0.2s ease-in;
@@ -249,10 +258,30 @@ a {
     text-transform: uppercase;
 }
 .headerone .container .hero .th .services a {
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
     color: #005D79;
 }
-.headerone .container .hero .th .services:hover ,
-.headerone .container .hero .th .contact:hover {
+.headerone .container .hero .th .contact a {
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #005D79;
+    color: white;
+}
+.headerone .container .hero .th .services a:hover ,
+.headerone .container .hero .th .contact a:hover {
     cursor: pointer;
     background-color: #00BDFF;
     transition: all 0.2s ease-in;
@@ -422,7 +451,12 @@ a {
     font-size: 15px;
     font-weight: 600;
 }
-.about .container .upper .three span:hover {
+.about .container .upper .three span a{
+    color: #707070;
+    font-size: 15px;
+    font-weight: 600;
+}
+.about .container .upper .three span a:hover {
     cursor: pointer;
     color: #005D79;
     transition: all 0.2s;
@@ -875,12 +909,22 @@ a {
     justify-content: center;
     align-items: center;
 }
+.service .container .main .card .button a {
+    width : 250px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #005D79;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .service .container .main .card:hover {
     background-color: #005D79;
     transform: scaleY(0.95);
 }
-.service .container .main .card:hover .button {
+.service .container .main .card:hover .button a {
     background-color: white;
     color: #005D79;
     cursor: pointer;
@@ -907,7 +951,11 @@ a {
 }
 .service .container .down > span span:last-child{
     display: inline-block;
-    margin-left: 5px;
+    color: #005D79;
+    cursor: pointer;
+}
+.service .container .down > span span:last-child > a {
+    display: inline-block;
     color: #005D79;
     font-weight: 600;
     font-size: 15px;
@@ -1260,7 +1308,7 @@ a {
     color: #00BDFF;
     font-weight: 600;
     font-size: 15px;
-    cursor: pointer;
+    cursor:no-drop;
 }
 /* THE END */
 
@@ -1309,7 +1357,7 @@ a {
     font-weight: 600;
 }
 .nosclients .container .upper .three span:hover {
-    cursor: pointer;
+    cursor: no-drop;
     color: #005D79;
     transition: all 0.2s;
 }
@@ -1530,7 +1578,7 @@ a {
 }
 .contacts .container {
     position: relative;
-    background-image: url('https://s3-alpha-sig.figma.com/img/b294/4649/c5523e7e26d80fba5ab92be913b96047?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YkyUbVYGwRwBEhhaEG~8EboGe2d-QiCP-P75UziUcPZ-IwMaFmTNzVC8wJUb60f1iLi1SzMHQMNEQWRu~JzTXFMFiQwYJ0MyKZcyMRJStgTxLahhRLiopdLLVDh0qpnAkdXSheaK-94kenslYPWh93bKXpynWvFH1wqUsRPVPVwVJ3EcalvNWRhrmHnHDU23RH0gs7dOBp5bz59aWhaNY-BVdGSis~vi8lbLGGGwFT9EcAFi-DRlOXyIapf6AbPOwpIkldZvfCu3CTmoydhjRWNoeQJKINhGgJ2pDsp6nQCFUGLFdFpGAPqc231SKkCb~xE13pG1Yg-vDbRBtvo9fw__');
+    background-image: url('./assets/history1.jpeg');
     background-size: cover;
     background-position: center;
     border-radius: 30px;
@@ -1573,7 +1621,22 @@ a {
     background-color: #005D79;
     transition: 0.2s all ease-in;
 }
-.contacts .container .button:hover {
+.contacts .container .button a{
+    color: rgba(255, 255, 255);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 244px;
+    height: 60px;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #005D79;
+    transition: 0.2s all ease-in;
+}
+.contacts .container .button a:hover {
     background-color: #00BDFF;
 }
 @media (max-width : 600px) {
